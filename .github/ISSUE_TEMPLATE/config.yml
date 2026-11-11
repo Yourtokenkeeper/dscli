@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 使用问题 / 讨论
+    url: https://github.com/OWNER/dscli/discussions
+    about: 装不上、用法疑问、协议变化的讨论请走 Discussions
+  - name: 安全漏洞
+    url: https://github.com/OWNER/dscli/security/advisories/new
+    about: 请勿公开 Issue，走 Security Advisory

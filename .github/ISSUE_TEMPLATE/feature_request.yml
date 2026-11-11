@@ -1,0 +1,30 @@
+name: 功能建议
+description: 想要新的子命令、端点或输出格式
+title: "[feat] "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: 你遇到什么问题
+      description: 描述场景，不要直接跳到方案
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: 你希望的用法
+      render: shell
+      placeholder: |
+        dscli export <session> --format markdown > chat.md
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: 你试过的替代方案
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: 范围确认
+      options:
+        - label: 该功能仅使用自己账号的登录态，不涉及绕过限额或批量注册
+          required: true

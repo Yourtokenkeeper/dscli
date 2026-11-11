@@ -1,0 +1,32 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+          cache: true
+      - name: gofmt
+        run: test -z "$(gofmt -l .)" || (gofmt -l . && exit 1)
+      - name: vet
+        run: go vet ./...
+      - name: test
+        run: go test ./... -race -count=1
+      - name: cross build (linux/amd64, linux/386)
+        env:
+          CGO_ENABLED: '0'
+        run: |
+          GOOS=linux GOARCH=amd64 go build -trimpath -o /tmp/dscli_amd64 ./cmd/dscli
+          GOOS=linux GOARCH=386   go build -trimpath -o /tmp/dscli_386   ./cmd/dscli
+          file /tmp/dscli_amd64 /tmp/dscli_386

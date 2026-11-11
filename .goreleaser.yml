@@ -1,0 +1,41 @@
+# 可选：想用 goreleaser 替代 Actions 里的手写矩阵时，打 tag 后执行
+#   goreleaser release --clean
+# 两者输出同名文件，二选一即可。
+version: 2
+
+project_name: dscli
+
+before:
+  hooks:
+    - go mod tidy
+
+builds:
+  - id: dscli
+    main: ./cmd/dscli
+    binary: dscli
+    env: [CGO_ENABLED=0]
+    flags: [-trimpath]
+    ldflags:
+      - -s -w -X main.version={{.Version}}
+    goos: [linux, windows, darwin]
+    goarch: [amd64, '386']
+    ignore:
+      - goos: darwin
+        goarch: '386'
+
+archives:
+  - formats: [binary]
+    name_template: "{{ .ProjectName }}_{{ .Os }}_{{ .Arch }}"
+
+checksum:
+  name_template: SHA256SUMS
+  algorithm: sha256
+
+changelog:
+  sort: asc
+  filters:
+    exclude: ['^docs:', '^chore:', '^test:']
+
+release:
+  draft: false
+  prerelease: auto

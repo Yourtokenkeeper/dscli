@@ -1,0 +1,51 @@
+name: Bug 报告
+description: 命令报错、输出异常、无法登录
+title: "[bug] "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        请勿粘贴真实 token / cookie / uid。用 `xxx…` 代替。
+  - type: input
+    id: version
+    attributes:
+      label: 版本
+      description: 运行 `dscli version` 的输出
+      placeholder: "dscli 1.0.0"
+    validations:
+      required: true
+  - type: dropdown
+    id: platform
+    attributes:
+      label: 平台
+      options:
+        - linux/amd64
+        - linux/386
+        - linux/arm64
+        - windows/amd64
+        - darwin/amd64
+        - 自行编译
+    validations:
+      required: true
+  - type: textarea
+    id: command
+    attributes:
+      label: 完整命令与输出
+      description: 包含报错原文；截图也可以，但文本更利于排查
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期望行为
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: 自查
+      options:
+        - label: 已确认 token 未过期（`dscli whoami` 通过）
+        - label: 已在最新 release 上复现
