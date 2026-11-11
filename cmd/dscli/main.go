@@ -21,8 +21,8 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/yg/deepseek-c-end/internal/api"
-	"github.com/yg/deepseek-c-end/internal/config"
+	"github.com/yg/dscli/internal/api"
+	"github.com/yg/dscli/internal/config"
 )
 
 const version = "1.0.0"

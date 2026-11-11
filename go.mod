@@ -1,4 +1,4 @@
-module github.com/yg/deepseek-c-end
+module github.com/yg/dscli
 
 go 1.25.0
 
