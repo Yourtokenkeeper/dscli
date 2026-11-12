@@ -20,4 +20,4 @@
 - 首个整包帧被忽略导致回复开头丢字的问题（有回归测试）
 - `fetch_page` / `history_messages` 用 POST 触发 405 的问题
 
-[1.0.0]: https://github.com/OWNER/dscli/releases/tag/v1.0.0
+[1.0.0]: https://github.com/Yourtokenkeeper/dscli/releases/tag/v1.0.0

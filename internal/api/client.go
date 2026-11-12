@@ -16,7 +16,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/yg/dscli/internal/pow"
+	"github.com/Yourtokenkeeper/dscli/internal/pow"
 )
 
 // BaseURL is overridable for tests and mirrors.

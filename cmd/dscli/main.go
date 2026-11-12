@@ -21,8 +21,8 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/yg/dscli/internal/api"
-	"github.com/yg/dscli/internal/config"
+	"github.com/Yourtokenkeeper/dscli/internal/api"
+	"github.com/Yourtokenkeeper/dscli/internal/config"
 )
 
 const version = "1.0.0"

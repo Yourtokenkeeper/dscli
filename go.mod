@@ -1,4 +1,4 @@
-module github.com/yg/dscli
+module github.com/Yourtokenkeeper/dscli
 
 go 1.25.0
 
